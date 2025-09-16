@@ -1,0 +1,325 @@
+{
+	"nodes": [
+		{
+			"link_key": "BON",
+			"csv_key": "Bonneville",
+			"display_name": "Bonneville Dam",
+			"elevation": 16,
+			"lon_lat": [-121.9457116424563, 45.64442243286198]
+		},
+		{
+			"link_key": "IHR",
+			"csv_key": "Ice Harbor",
+			"display_name": "Ice Harbor Dam",
+			"elevation": 433,
+			"lon_lat": [-118.87774284563238, 46.25029404915796]
+		},
+		{
+			"link_key": "JDA",
+			"csv_key": "John Day",
+			"display_name": "John Day Dam",
+			"elevation": 259,
+			"lon_lat": [-120.6924340892682, 45.716681890871136]
+		},
+		{
+			"link_key": "LGS",
+			"csv_key": "Little Goose",
+			"display_name": "Little Goose Dam",
+			"elevation": 630,
+			"lon_lat": [-118.02232203048698, 46.58812294354741]
+		},
+		{
+			"link_key": "LMN",
+			"csv_key": "Lower Monumental",
+			"display_name": "Lower Monumental Dam",
+			"elevation": 440,
+			"lon_lat": [-118.5405679224751, 46.562135032318025]
+		},
+		{
+			"link_key": "LYL",
+			"csv_key": "Lyle Falls",
+			"display_name": "Lyle Falls",
+			"elevation": 161,
+			"lon_lat": [-121.25944708267347, 45.71722185648855]
+		},
+		{
+			"link_key": "MCN",
+			"csv_key": "McNary",
+			"display_name": "McNary Dam",
+			"elevation": 820,
+			"lon_lat": [-119.09013722901538, 45.97426310932355]
+		},
+		{
+			"link_key": "PRD",
+			"csv_key": "Priest Rapids",
+			"display_name": "Priest Rapids Dam",
+			"elevation": 459,
+			"lon_lat": [-119.89729712996329, 46.64563484977672]
+		},
+		{
+			"link_key": "PRO",
+			"csv_key": "Prosser",
+			"display_name": "Prosser Dam",
+			"elevation": 614,
+			"lon_lat": [-119.77263410562932, 46.213195492612]
+		},
+		{
+			"link_key": "RIS",
+			"csv_key": "Rock Island",
+			"display_name": "Rock Island Dam",
+			"elevation": 577,
+			"lon_lat": [-120.09297432828035, 47.34275296094607]
+		},
+		{
+			"link_key": "RRH",
+			"csv_key": "Rocky Reach",
+			"display_name": "Rocky Reach Dam",
+			"elevation": 709,
+			"lon_lat": [-120.29502086907446, 47.533398739670474]
+		},
+		{
+			"link_key": "ROZ",
+			"csv_key": "Roza",
+			"display_name": "Roza Dam",
+			"elevation": 1211,
+			"lon_lat": [-120.46618069138503, 46.74913629015207]
+		},
+		{
+			"link_key": "TDA",
+			"csv_key": "The Dalles",
+			"display_name": "The Dalles Dam",
+			"elevation": 62,
+			"lon_lat": [-121.13448047509323, 45.61412806723906]
+		},
+		{
+			"link_key": "TUM",
+			"csv_key": "Tumwater",
+			"display_name": "Tumwater Dam",
+			"elevation": 1634,
+			"lon_lat": [-120.7220377650456, 47.617256181144626]
+		},
+		{
+			"link_key": "WAN",
+			"csv_key": "Wanapum",
+			"display_name": "Wanapum Dam",
+			"elevation": 568,
+			"lon_lat": [-119.97118510109307, 46.87562131537693]
+		},
+		{
+			"link_key": "WEL",
+			"csv_key": "Wells",
+			"display_name": "Wells Dam",
+			"elevation": 771,
+			"lon_lat": [-119.86523256449296, 47.947470765827134]
+		},
+		{
+			"link_key": "BON_loss",
+			"csv_key": "Bonneville",
+			"display_name": "Bonneville Dam",
+			"elevation": 16,
+			"lon_lat": [-121.9457116424563, 45.64442243286198]
+		},
+		{
+			"link_key": "IHR_loss",
+			"csv_key": "Ice Harbor",
+			"display_name": "Ice Harbor Dam",
+			"elevation": 433,
+			"lon_lat": [-118.87774284563238, 46.25029404915796]
+		},
+		{
+			"link_key": "JDA_loss",
+			"csv_key": "John Day",
+			"display_name": "John Day Dam",
+			"elevation": 259,
+			"lon_lat": [-120.6924340892682, 45.716681890871136]
+		},
+		{
+			"link_key": "LMN_loss",
+			"csv_key": "Lower Monumental",
+			"display_name": "Lower Monumental Dam",
+			"elevation": 440,
+			"lon_lat": [-118.5405679224751, 46.562135032318025]
+		},
+		{
+			"link_key": "MCN_loss",
+			"csv_key": "McNary",
+			"display_name": "McNary Dam",
+			"elevation": 820,
+			"lon_lat": [-119.09013722901538, 45.97426310932355]
+		},
+		{
+			"link_key": "PRD_loss",
+			"csv_key": "Priest Rapids",
+			"display_name": "Priest Rapids Dam",
+			"elevation": 459,
+			"lon_lat": [-119.89729712996329, 46.64563484977672]
+		},
+		{
+			"link_key": "PRO_loss",
+			"csv_key": "Prosser",
+			"display_name": "Prosser Dam",
+			"elevation": 614,
+			"lon_lat": [-119.77263410562932, 46.213195492612]
+		},
+		{
+			"link_key": "RIS_loss",
+			"csv_key": "Rock Island",
+			"display_name": "Rock Island Dam",
+			"elevation": 577,
+			"lon_lat": [-120.09297432828035, 47.34275296094607]
+		},
+		{
+			"link_key": "RRH_loss",
+			"csv_key": "Rocky Reach",
+			"display_name": "Rocky Reach Dam",
+			"elevation": 709,
+			"lon_lat": [-120.29502086907446, 47.533398739670474]
+		},
+		{
+			"link_key": "TDA_loss",
+			"csv_key": "The Dalles",
+			"display_name": "The Dalles Dam",
+			"elevation": 62,
+			"lon_lat": [-121.13448047509323, 45.61412806723906]
+		},
+		{
+			"link_key": "WAN_loss",
+			"csv_key": "Wanapum",
+			"display_name": "Wanapum Dam",
+			"elevation": 568,
+			"lon_lat": [-119.97118510109307, 46.87562131537693]
+		}
+	],
+	"links": [
+		{
+			"source": "BON",
+			"target": "LYL",
+			"value": 664
+		},
+		{
+			"source": "BON",
+			"target": "TDA",
+			"value": 408967
+		},
+		{
+			"source": "TDA",
+			"target": "JDA",
+			"value": 315459
+		},
+		{
+			"source": "JDA",
+			"target": "MCN",
+			"value": 270850
+		},
+		{
+			"source": "MCN",
+			"target": "IHR",
+			"value": 96381
+		},
+		{
+			"source": "MCN",
+			"target": "PRO",
+			"value": 5093
+		},
+		{
+			"source": "MCN",
+			"target": "PRD",
+			"value": 83090
+		},
+		{
+			"source": "PRO",
+			"target": "ROZ",
+			"value": 1958
+		},
+		{
+			"source": "IHR",
+			"target": "LMN",
+			"value": 94120
+		},
+		{
+			"source": "LMN",
+			"target": "LGS",
+			"value": 89965
+		},
+		{
+			"source": "PRD",
+			"target": "WAN",
+			"value": 67697
+		},
+		{
+			"source": "WAN",
+			"target": "RIS",
+			"value": 65949
+		},
+		{
+			"source": "RIS",
+			"target": "TUM",
+			"value": 3080
+		},
+		{
+			"source": "RIS",
+			"target": "RRH",
+			"value": 49597
+		},
+		{
+			"source": "RRH",
+			"target": "WEL",
+			"value": 29501
+		},
+		{
+			"source": "BON",
+			"target": "BON_loss",
+			"value": 239271
+		},
+		{
+			"source": "IHR",
+			"target": "IHR_loss",
+			"value": 2261
+		},
+		{
+			"source": "JDA",
+			"target": "JDA_loss",
+			"value": 44609
+		},
+		{
+			"source": "LMN",
+			"target": "LMN_loss",
+			"value": 4155
+		},
+		{
+			"source": "MCN",
+			"target": "MCN_loss",
+			"value": 86286
+		},
+		{
+			"source": "PRD",
+			"target": "PRD_loss",
+			"value": 15393
+		},
+		{
+			"source": "PRO",
+			"target": "PRO_loss",
+			"value": 3135
+		},
+		{
+			"source": "RIS",
+			"target": "RIS_loss",
+			"value": 13272
+		},
+		{
+			"source": "RRH",
+			"target": "RRH_loss",
+			"value": 20096
+		},
+		{
+			"source": "TDA",
+			"target": "TDA_loss",
+			"value": 93508
+		},
+		{
+			"source": "WAN",
+			"target": "WAN_loss",
+			"value": 1748
+		}
+	]
+}
