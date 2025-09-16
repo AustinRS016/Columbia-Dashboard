@@ -1,13 +1,20 @@
-import React from 'react';
-import ExampleComponent from './components/ExampleComponent';
+import React, { useState } from 'react';
+import SankeyContainer from './components/Sankey/SankeyContainer';
 
 const App = () => {
-    return (
-        <div>
-            <h1>Welcome to My React App</h1>
-            <ExampleComponent />
-        </div>
-    );
+	const [data, setData] = useState(null);
+	const [selection, setSelection] = useState(null);
+
+	return (
+		<div>
+			<h1>Welcome to My React App</h1>
+			<SankeyContainer
+				data={data}
+				selection={selection}
+				setSelection={setSelection}
+			/>
+		</div>
+	);
 };
 
 export default App;
