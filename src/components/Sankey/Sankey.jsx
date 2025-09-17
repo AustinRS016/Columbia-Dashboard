@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { sankey, sankeyLeft, sankeyLinkHorizontal } from 'd3-sankey';
 
 const Sankey = ({ data, selection, setSelection }) => {
-	const svgWidth = 800;
+	const svgWidth = 1000;
 	const svgHeight = 400;
 	const margin = { top: 20, right: 10, bottom: 10, left: 20 };
 	const width = svgWidth - margin.left - margin.right;

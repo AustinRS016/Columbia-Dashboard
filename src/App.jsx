@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SankeyContainer from './components/Sankey/SankeyContainer';
+import ElevationChart from './components/ElevationChart/ElevationChart';
 
 const App = () => {
 	const [data, setData] = useState(null);
@@ -16,11 +17,18 @@ const App = () => {
 	return (
 		<div>
 			{data ? (
-				<SankeyContainer
-					data={data}
-					selection={selection}
-					setSelection={setSelection}
-				/>
+				<>
+					<SankeyContainer
+						data={data}
+						selection={selection}
+						setSelection={setSelection}
+					/>
+					<ElevationChart
+						data={data}
+						selection={selection}
+						setSelection={setSelection}
+					/>
+				</>
 			) : null}
 		</div>
 	);
