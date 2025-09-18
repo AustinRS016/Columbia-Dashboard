@@ -1,0 +1,12 @@
+.map-container {
+	position: absolute;
+	background-color: grey;
+	width: 100vw;
+	height: 100vh;
+}
+
+.map-chart {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}

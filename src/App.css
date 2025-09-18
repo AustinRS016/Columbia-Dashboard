@@ -1,0 +1,14 @@
+body {
+	margin: 0px;
+}
+
+.App {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+}
+
+.overlay-charts {
+	position: absolute;
+	z-index: 10;
+}

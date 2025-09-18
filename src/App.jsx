@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import SankeyContainer from './components/Sankey/SankeyContainer';
 import ElevationChart from './components/ElevationChart/ElevationChart';
+import MapContainer from './components/Map/MapContainer';
+import './App.css';
 
 const App = () => {
 	const [data, setData] = useState(null);
+	const [linksData, setLinksData] = useState(null);
 	const [selection, setSelection] = useState(null);
 
 	useEffect(() => {
@@ -12,21 +15,35 @@ const App = () => {
 		)
 			.then((res) => res.json())
 			.then((data) => setData(data));
+		fetch(
+			'https://raw.githubusercontent.com/AustinRS016/Columbia-Dashboard/refs/heads/master/links_geometry.json'
+		)
+			.then((res) => res.json())
+			.then((data) => setLinksData(data));
 	}, []);
 
 	return (
-		<div>
+		<div className='App'>
 			{data ? (
 				<>
-					<SankeyContainer
+					<div className='overlay-charts'>
+						<SankeyContainer
+							data={data}
+							selection={selection}
+							setSelection={setSelection}
+						/>
+						<ElevationChart
+							data={data}
+							selection={selection}
+							setSelection={setSelection}
+						/>
+					</div>
+
+					<MapContainer
 						data={data}
+						linksData={linksData}
 						selection={selection}
-						setSelection={setSelection}
-					/>
-					<ElevationChart
-						data={data}
-						selection={selection}
-						setSelection={setSelection}
+						setSelection={selection}
 					/>
 				</>
 			) : null}
