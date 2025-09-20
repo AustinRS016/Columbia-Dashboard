@@ -4,7 +4,7 @@ import './ElevationChart.css';
 
 const ElevationChartContainer = ({ data, selection, setSelection }) => {
 	return (
-		<div className='elevation-chart-container'>
+		<div className='elevation-chart-container overlay-chart'>
 			<ElevationChart
 				data={data}
 				selection={selection}

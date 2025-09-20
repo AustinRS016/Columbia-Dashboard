@@ -5,7 +5,7 @@ import './Sankey.css';
 const SankeyContainer = ({ data, selection, setSelection }) => {
 	console.log({ data });
 	return (
-		<div id='sankey-container'>
+		<div id='sankey-container' className='overlay-chart'>
 			<Sankey data={data} selection={selection} setSelection={setSelection} />
 		</div>
 	);

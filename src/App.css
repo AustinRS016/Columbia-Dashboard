@@ -6,9 +6,15 @@ body {
 	position: relative;
 	width: 100vw;
 	height: 100vh;
+	background-color: rgba(6, 6, 6, 0.87);
 }
 
 .overlay-charts {
 	position: absolute;
 	z-index: 10;
+}
+
+.overlay-chart {
+	border-bottom: 10px solid; /* thickness of the border */
+	border-image: linear-gradient(transparent, black) 1;
 }

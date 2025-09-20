@@ -1,5 +1,12 @@
-import React from 'react';
+import { useState } from 'react';
 import * as d3 from 'd3';
+import {
+	calculateDataExtent,
+	metersPerPixel,
+	lonLatToMercator,
+	mercatorToLonLat,
+} from './utils';
+import Basemap from './Basemap';
 
 /**
  * @typedef {Object} StreamSegment
@@ -21,7 +28,8 @@ import * as d3 from 'd3';
 
 /**
  * @typedef MapProps
- * @property {Dam[]} data
+ * @property {Object} data
+ * @property {Dam[]} data.nodes
  * @property {StreamSegment[]} linksData
  * @property {any} selection
  * @property {function} setSelection
@@ -32,44 +40,42 @@ import * as d3 from 'd3';
  * @param {MapProps} param0
  * @returns
  */
-const Map = ({ data, linksData, selection, setSelection }) => {
-	const svgWidth = 500;
-	const svgHeight = 500;
-	const dataExtent = data.nodes.reduce(
-		(acc, curr) => {
-			const [currLon, currLat] = curr.lon_lat;
-			return {
-				xMin: Math.min(currLon, acc.xMin),
-				yMin: Math.min(currLat, acc.yMin),
-				xMax: Math.max(currLon, acc.xMax),
-				yMax: Math.max(currLat, acc.yMax),
-			};
-		},
-		{
-			xMin: data.nodes[0].lon_lat[0],
-			yMin: data.nodes[0].lon_lat[1],
-			xMax: data.nodes[0].lon_lat[0],
-			yMax: data.nodes[0].lon_lat[1],
-		}
-	);
-	const centerLon = (dataExtent.xMin + dataExtent.xMax) / 2;
-	const centerLat = (dataExtent.yMin + dataExtent.yMax) / 2;
-
-	const projection = d3
-		.geoMercator()
-		.scale(5000)
-		.center([centerLon, centerLat])
-		.translate([svgWidth / 2, svgHeight / 2]);
-
+const Map = ({
+	data,
+	linksData,
+	selection,
+	setSelection,
+	projection,
+	imageDimensions,
+	imageBounds,
+}) => {
 	const pathGenerator = d3.geoPath().projection(projection);
+	const { imageGeo, bottomLeftLonLat, topRightLonLat } = imageBounds;
+	const [imgWidth, imgHeight] = projection([
+		topRightLonLat[0],
+		bottomLeftLonLat[1],
+	]);
+
+	const [x, y] = projection([bottomLeftLonLat[0], topRightLonLat[1]]);
 
 	return (
-		<svg id='map' width={svgWidth} height={svgHeight}>
+		<svg
+			id='map'
+			viewBox={[0, 0, imgWidth, imgHeight]}
+			preserveAspectRatio='xMidYMid meet'
+		>
+			<image
+				x={0}
+				y={0}
+				width={imgWidth}
+				height={imgHeight}
+				href='/basemap.png'
+			/>
 			<g className='dams'>
 				{data.nodes.map((d) => {
 					if (d.link_key.includes('loss')) return;
 					const [x, y] = projection(d.lon_lat);
-					console.log({ x, y });
+					// console.log({ x, y });
 					return (
 						<g>
 							<circle cx={x} cy={y} r={5} fill='red' />
@@ -82,8 +88,6 @@ const Map = ({ data, linksData, selection, setSelection }) => {
 			</g>
 			<g className='stream-links'>
 				{linksData.map((link) => {
-					console.log(link);
-
 					return (
 						<path d={pathGenerator(link.geometry)} stroke='red' fill='none' />
 					);
