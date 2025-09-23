@@ -18,3 +18,28 @@
 	text-align: center;
 	transform: translateY(-50%);
 }
+
+.unselected {
+	opacity: 0.4;
+}
+
+.dam-label-wrapper {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	pointer-events: none;
+}
+
+.dam-name {
+	text-align: center;
+	top: 50%;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	text-shadow: 0 0 8px white;
+	font-weight: bold;
+}
+
+.end-node {
+}
+
+.link-node {
+}

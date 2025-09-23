@@ -2,11 +2,20 @@ import React from 'react';
 import Sankey from './Sankey';
 import './Sankey.css';
 
-const SankeyContainer = ({ data, selection, setSelection }) => {
-	console.log({ data });
+const SankeyContainer = ({
+	data,
+	selection,
+	setSelection,
+	elevationColorScale,
+}) => {
 	return (
 		<div id='sankey-container' className='overlay-chart'>
-			<Sankey data={data} selection={selection} setSelection={setSelection} />
+			<Sankey
+				data={data}
+				selection={selection}
+				setSelection={setSelection}
+				elevationColorScale={elevationColorScale}
+			/>
 		</div>
 	);
 };

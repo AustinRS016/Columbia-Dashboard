@@ -1,7 +1,12 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import * as d3 from 'd3';
 
-const ElevationChart = ({ data, selection, setSelection }) => {
+const ElevationChart = ({
+	data,
+	selection,
+	setSelection,
+	elevationColorScale,
+}) => {
 	const svgWidth = 500;
 	const svgHeight = 300;
 	const margin = { top: 10, right: 10, bottom: 50, left: 40 },
@@ -25,6 +30,21 @@ const ElevationChart = ({ data, selection, setSelection }) => {
 			.range([0, height]);
 		return { xScale, yScale };
 	}, [data, selection]);
+
+	const handleMouseOver = (node) => {
+		const ids = findDownStreamSource(node.link_key);
+		setSelection({ node: node.link_key, links: ids });
+	};
+
+	const findDownStreamSource = (link_key) => {
+		const ids = [];
+		const link = data.links.find((l) => l.target == link_key);
+		if (link) {
+			ids.push(link.source + '-' + link.target);
+			ids.push(...findDownStreamSource(link.source));
+		}
+		return ids;
+	};
 
 	return (
 		<svg width={svgWidth} height={svgHeight}>
@@ -117,6 +137,13 @@ const ElevationChart = ({ data, selection, setSelection }) => {
 							cx={xScale(d.display_name) + xScale.bandwidth() / 2}
 							cy={yScale(d.elevation)}
 							r='5px'
+							fill={
+								selection?.node === d.link_key
+									? 'red'
+									: elevationColorScale(d.elevation)
+							}
+							onMouseOver={() => handleMouseOver(d)}
+							onMouseLeave={() => setSelection(null)}
 						/>
 					);
 				})}

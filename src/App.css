@@ -12,9 +12,12 @@ body {
 .overlay-charts {
 	position: absolute;
 	z-index: 10;
+	pointer-events: none;
 }
 
 .overlay-chart {
-	border-bottom: 10px solid; /* thickness of the border */
-	border-image: linear-gradient(transparent, black) 1;
+	box-shadow: 0 0 20px black;
+	padding: 10px;
+	border-radius: 8px;
+	background-color: rgba(6, 6, 6, 0.87);
 }

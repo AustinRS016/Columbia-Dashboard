@@ -1,13 +1,4 @@
-import { useState } from 'react';
 import * as d3 from 'd3';
-import {
-	calculateDataExtent,
-	metersPerPixel,
-	lonLatToMercator,
-	mercatorToLonLat,
-} from './utils';
-import Basemap from './Basemap';
-
 /**
  * @typedef {Object} StreamSegment
  * @property {string} source - Upstream node ID
@@ -48,6 +39,7 @@ const Map = ({
 	projection,
 	imageDimensions,
 	imageBounds,
+	elevationColorScale,
 }) => {
 	const pathGenerator = d3.geoPath().projection(projection);
 	const { imageGeo, bottomLeftLonLat, topRightLonLat } = imageBounds;
@@ -57,6 +49,23 @@ const Map = ({
 	]);
 
 	const [x, y] = projection([bottomLeftLonLat[0], topRightLonLat[1]]);
+
+	const handleMouseOver = (node) => {
+		const ids = findDownStreamSource(node.link_key);
+		setSelection({ node: node.link_key, links: ids });
+	};
+
+	const findDownStreamSource = (link_key) => {
+		const ids = [];
+		const link = data.links.find((l) => l.target == link_key);
+		if (link) {
+			ids.push(link.source + '-' + link.target);
+			ids.push(...findDownStreamSource(link.source));
+		}
+		return ids;
+	};
+
+	console.log(elevationColorScale(50));
 
 	return (
 		<svg
@@ -75,11 +84,17 @@ const Map = ({
 				{data.nodes.map((d) => {
 					if (d.link_key.includes('loss')) return;
 					const [x, y] = projection(d.lon_lat);
-					// console.log({ x, y });
 					return (
 						<g>
-							<circle cx={x} cy={y} r={5} fill='red' />
-							<text x={x} y={y}>
+							<circle
+								cx={x}
+								cy={y}
+								r={5}
+								fill={`${selection?.node == d.link_key ? 'yellow' : 'red'}`}
+								onMouseOver={() => handleMouseOver(d)}
+								onMouseLeave={() => setSelection(null)}
+							/>
+							<text x={x} y={y} pointerEvents={'none'}>
 								{d.link_key}
 							</text>
 						</g>
@@ -88,8 +103,29 @@ const Map = ({
 			</g>
 			<g className='stream-links'>
 				{linksData.map((link) => {
+					const selectionKey = link.source + '-' + link.target;
+					const sourceElevation = data.nodes.find(
+						(n) => n.link_key === link.source
+					).elevation;
+					const targetElevation = data.nodes.find(
+						(n) => n.link_key === link.target
+					).elevation;
+					const color = elevationColorScale(
+						sourceElevation + (targetElevation - sourceElevation) / 2
+					);
 					return (
-						<path d={pathGenerator(link.geometry)} stroke='red' fill='none' />
+						<path
+							d={pathGenerator(link.geometry)}
+							stroke={`${
+								selection
+									? selection?.links?.includes(selectionKey)
+										? 'yellow'
+										: 'none'
+									: color
+							}`}
+							fill='none'
+							pointerEvents={'none'}
+						/>
 					);
 				})}
 			</g>

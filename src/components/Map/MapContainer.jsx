@@ -3,7 +3,13 @@ import './Map.css';
 import * as d3 from 'd3';
 import { calculateImageBounds } from './utils';
 
-const MapContainer = ({ data, linksData, selection, setSelection }) => {
+const MapContainer = ({
+	data,
+	linksData,
+	selection,
+	setSelection,
+	elevationColorScale,
+}) => {
 	const imageDimensions = {
 		width: 1144,
 		height: 768,
@@ -30,6 +36,7 @@ const MapContainer = ({ data, linksData, selection, setSelection }) => {
 					projection={projection}
 					imageDimensions={imageDimensions}
 					imageBounds={imageBounds}
+					elevationColorScale={elevationColorScale}
 				/>
 			) : null}
 		</div>
